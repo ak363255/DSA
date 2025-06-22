@@ -6,25 +6,28 @@ import java.util.Queue;
 public class StackUsingQueue {
     class MyStack {
 
-        Queue<Integer> queue,helper;
+        Queue<Integer> queue, temp;
         public MyStack() {
-            queue = new ArrayDeque<>();
-            helper = new ArrayDeque<>();
+             queue = new ArrayDeque<>();
+             temp = new ArrayDeque<>();
         }
 
         public void push(int x) {
-           while(!queue.isEmpty()){
-               helper.add(queue.poll());
-           }
-           queue.add(x);
-           while(!helper.isEmpty()){
-               queue.add(helper.poll());
-           }
+             if(queue.isEmpty())queue.add(x);
+             else{
+                 while(!queue.isEmpty()){
+                     temp.add(queue.poll());
+                 }
+                 queue.add(x);
+                 while (!temp.isEmpty()){
+                     queue.add(temp.poll());
+                 }
+             }
         }
 
         public int pop() {
-            if(queue.isEmpty())return -1;
-            return queue.poll();
+             if(queue.isEmpty())return -1;
+             return queue.poll();
         }
 
         public int top() {
@@ -33,7 +36,7 @@ public class StackUsingQueue {
         }
 
         public boolean empty() {
-            return queue.isEmpty();
+             return queue.isEmpty();
         }
     }
 }
