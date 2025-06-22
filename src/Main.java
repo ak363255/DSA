@@ -3,6 +3,8 @@ import dsa.binary_search.*;
 import dsa.bit_manipulation.*;
 import dsa.recursion.ExpressionAndOperators;
 import dsa.recursion.RatMaze;
+import dsa.slidingwindow.LongestSubstringWithUniques;
+import dsa.slidingwindow.NoOfNiceSubArray;
 import dsa.stack_queue.*;
 import dsa.string.LongestCommonPrefix;
 import dsa.string.RomanToInt;
@@ -25,12 +27,9 @@ public final class Main {
     public static void main(String[] args) {
         PrintWriter out = new PrintWriter(System.out);
         FastReader sc = new FastReader();
-        int n = sc.nextInt();
-        int a[] = new int[n];
-        for(int i = 0;i<n;i++){
-            a[i] = sc.nextInt();
-        }
-        int ans = DistinictPrimeFactorProductArray.distinctPrimeFactors(a);
+        String s = sc.next();
+        int k = sc.nextInt();
+        int ans = LongestSubstringWithUniques.longestkSubstr(s,k);
         out.write(ans+"");
         out.flush();
     }
