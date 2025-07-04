@@ -1,3 +1,4 @@
+import dsa.GFG_ProblemOfTheDay.MaxMinHeight;
 import dsa.array.*;
 import dsa.binary_search.*;
 import dsa.bit_manipulation.*;
@@ -27,9 +28,12 @@ public final class Main {
     public static void main(String[] args) {
         PrintWriter out = new PrintWriter(System.out);
         FastReader sc = new FastReader();
-        String s = sc.next();
+        int n = sc.nextInt();
+        int []a = new int[n];
+        for(int i = 0;i<n;i++)a[i] = sc.nextInt();
         int k = sc.nextInt();
-        int ans = LongestSubstringWithUniques.longestkSubstr(s,k);
+        int w = sc.nextInt();
+        int ans = MaxMinHeight.maxMinHeight(a,k,w);
         out.write(ans+"");
         out.flush();
     }
